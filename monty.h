@@ -36,9 +36,10 @@ typedef struct instruction_s
         void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
-
+/* main functions*/
 int main(int argc, char *argv[]);
 int read(FILE *fp);
 int search(char *buf, int linenum, stack_t stack);
+int exe(char *tok, instruction_t *form, int linenum, stack_t **stack);
 
 #endif

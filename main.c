@@ -68,7 +68,7 @@ int search(char *buf, int linenum, stack_t stack)
 {
 	char *tok = NULL;
 
-	instruction_t op_code[] = {
+	instruction_t form[] = {
 		{"push", push},
 		{"pall", print_s},
 		{NULL, NULL}
@@ -76,7 +76,7 @@ int search(char *buf, int linenum, stack_t stack)
 
 	tok = strtok(buf, " \n\t\r");
 	
-	if (exe(tok, op_code, linenum, stack) == 1)
+	if (exe(tok, form, linenum, stack) == 1)
 	{
 		exit(EXIT_FAILURE);
 	}
