@@ -42,17 +42,15 @@ int read(FILE *fp)
 	size_t size = 0;
 	stack_t *stack = NULL;
 
-	for (linenum = 1; getline(&buff, &size, fp) != -1; ++linenum)
+	for (linenum = 1; getline(&buf, &size, fp) != -1; ++linenum)
 	{
-		if (search(buf, linenum, stack) == 1)
+		if (search(buf, linenum, &stack) == 1)
 		{
 			free(buf);
-			free_s(stack); // implementar 
 			exit(EXIT_FAILURE);
 		}
 	}
 	free(buf);
-	free_s(stack); // implementar
 	return (0);
 }
 
@@ -64,13 +62,13 @@ int read(FILE *fp)
  * Return: int
  */
 
-int search(char *buf, unsigned int linenum, stack_t stack)
+int search(char *buf, unsigned int linenum, stack_t **stack)
 {
 	char *tok = NULL;
 
 	instruction_t form[] = {
-		{"push", push},
-		{"pall", print_s},
+		{"push", _push},
+		{"pall", _pall},
 		{NULL, NULL}
 	};
 

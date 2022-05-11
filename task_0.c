@@ -25,14 +25,14 @@ void _push(stack_t **stack, unsigned int line_number)
 	{
 		node->prev = NULL;
 		node->next = NULL;
-		*aux = node;
+		*stack = node;
 	}
 	else
 	{
 		node->next = NULL;
 		node->prev = aux;
 		aux->next = node;
-		*aux = node;
+		*stack = node;
 	}
 }
 

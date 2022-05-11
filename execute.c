@@ -1,4 +1,4 @@
-#include "morty.c"
+#include "monty.h"
 
 int value;
 
@@ -29,17 +29,19 @@ int exe(char *tok, instruction_t *form, unsigned int linenum, stack_t **stack)
 			}
 			value = atoi(val);
 			form[0].f(stack, linenum);
+			break;
 		}
 		if (strcmp(form[i].opcode, tok) == 0)
 		{
 			form[i].f(stack, linenum);
+			break;
 		}
 
 		i++;
 	}
 	if (form[i].opcode == NULL)
 	{
-		fprintf(stderr, "L%u: unknown instruction %s\n", line_number, tok);
+		fprintf(stderr, "L%u: unknown instruction %s\n", linenum, tok);
 		exit(EXIT_FAILURE);
 	}
 	return (0);
