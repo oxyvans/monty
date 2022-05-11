@@ -44,6 +44,7 @@ int read(FILE *fp)
 
 	for (linenum = 1; getline(&buf, &size, fp) != -1; ++linenum)
 	{
+		
 		if (search(buf, linenum, &stack) == 1)
 		{
 			free(buf);
@@ -74,7 +75,8 @@ int search(char *buf, unsigned int linenum, stack_t **stack)
 	};
 
 	tok = strtok(buf, " \n\t\r");
-	
+	if (tok == NULL)
+		return(0);	
 	if (exe(tok, form, linenum, stack) == 1)
 	{
 		exit(EXIT_FAILURE);
