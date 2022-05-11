@@ -1,5 +1,7 @@
 #include "morty.c"
 
+int value;
+
 /**
  * exe - exe funcion
  * @tok: line
@@ -9,11 +11,10 @@
  * Return: int
  */
 
-int exe(char *tok, instruction_t *form, int linenum, stack_t **stack)
+int exe(char *tok, instruction_t *form, unsigned int linenum, stack_t **stack)
 {
 	char *val = NULL;
 	int i = 1;
-	int value;
 
 	while(form[i].opcode != NULL)
 	{
@@ -27,7 +28,7 @@ int exe(char *tok, instruction_t *form, int linenum, stack_t **stack)
 
 			}
 			value = atoi(val);
-			form[0].f(value, stack);
+			form[0].f(stack, linenum);
 		}
 		if (strcmp(form[i].opcode, tok) == 0)
 		{

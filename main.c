@@ -37,7 +37,7 @@ int main(int argc, char *argv[])
 
 int read(FILE *fp)
 {
-	int linenum;
+	unsigned int linenum;
 	char *buf = NULL;
 	size_t size = 0;
 	stack_t *stack = NULL;
@@ -64,7 +64,7 @@ int read(FILE *fp)
  * Return: int
  */
 
-int search(char *buf, int linenum, stack_t stack)
+int search(char *buf, unsigned int linenum, stack_t stack)
 {
 	char *tok = NULL;
 

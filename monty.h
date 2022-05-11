@@ -6,6 +6,8 @@
 #include <string.h>
 #include <ctype.h>
 
+extern int value;
+
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
@@ -39,7 +41,7 @@ typedef struct instruction_s
 /* main functions*/
 int main(int argc, char *argv[]);
 int read(FILE *fp);
-int search(char *buf, int linenum, stack_t stack);
-int exe(char *tok, instruction_t *form, int linenum, stack_t **stack);
+int search(char *buf, unsigned int linenum, stack_t stack);
+int exe(char *tok, instruction_t *form, unsigned int linenum, stack_t **stack);
 
 #endif
