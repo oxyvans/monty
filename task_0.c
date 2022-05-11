@@ -8,7 +8,32 @@
 
 void _push(stack_t **stack, unsigned int line_number)
 {
+	stack_t *node, *aux = *stack;
+	(void)line_number;
 
+	node = malloc(sizeof(stack_t));
+
+	if (node == NULL)
+	{
+		fprintf(stderr, "Error: malloc failed\n");
+		exit(EXIT_FAILURE);
+	}
+
+	node->n = value;
+
+	if (aux == NULL)
+	{
+		node->prev = NULL;
+		node->next = NULL;
+		*aux = node;
+	}
+	else
+	{
+		node->next = NULL;
+		node->prev = aux;
+		aux->next = node;
+		*aux = node;
+	}
 }
 
 /**
@@ -19,5 +44,12 @@ void _push(stack_t **stack, unsigned int line_number)
 
 void _pall(stack_t **stack, unsigned int line_number)
 {
+	stack_t *aux = *stack;
+	(void)line_number;
 
+	while(aux)
+	{
+		printf("%d\n", aux->n);
+		aux = aux->prev;
+	}
 }
