@@ -24,8 +24,7 @@ int main(int argc, char *argv[])
 		exit(EXIT_FAILURE);
 	}
 
-	R_File(fp);
-
+	read(fp);
 	fclose(fp);
 	return(0);
 }
@@ -54,5 +53,32 @@ int read(FILE *fp)
 	}
 	free(buf);
 	free_s(stack); // implementar
+	return (0);
+}
+
+/**
+ * search - search funcion
+ * @buf: line
+ * @linenum: line
+ * @stack: stack
+ * Return: int
+ */
+
+int search(char *buf, int linenum, stack_t stack)
+{
+	char *tok = NULL;
+
+	instruction_t op_code[] = {
+		{"push", push},
+		{"pall", print_s},
+		{NULL, NULL}
+	};
+
+	tok = strtok(buf, " \n\t\r");
+	
+	if (exe(tok, op_code, linenum, stack) == 1)
+	{
+		exit(EXIT_FAILURE);
+	}
 	return (0);
 }

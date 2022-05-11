@@ -39,5 +39,6 @@ typedef struct instruction_s
 
 int main(int argc, char *argv[]);
 int read(FILE *fp);
+int search(char *buf, int linenum, stack_t stack);
 
 #endif
