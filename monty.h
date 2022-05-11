@@ -38,5 +38,6 @@ typedef struct instruction_s
 
 
 int main(int argc, char *argv[]);
+int read(FILE *fp);
 
 #endif

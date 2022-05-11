@@ -31,16 +31,28 @@ int main(int argc, char *argv[])
 }
 
 /**
- * R_File - reding file
+ * read - reding file
  * @fp: file
+ * Return: int
  */
 
-void R_File(FILE *fp)
+int read(FILE *fp)
 {
 	int linenum;
-	char *p, buf[1024];
+	char *buf = NULL;
+	size_t size = 0;
+	stack_t *stack = NULL;
 
-	for (linenum = 1; fgets(buf, sizeof(buf), fp) != NULL; ++linenum)
+	for (linenum = 1; getline(&buff, &size, fp) != -1; ++linenum)
 	{
+		if (search(buf, linenum, stack) == 1)
+		{
+			free(buf);
+			free_s(stack); // implementar 
+			exit(EXIT_FAILURE);
+		}
 	}
+	free(buf);
+	free_s(stack); // implementar
+	return (0);
 }
