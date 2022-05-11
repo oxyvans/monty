@@ -53,3 +53,20 @@ void _pall(stack_t **stack, unsigned int line_number)
 		aux = aux->prev;
 	}
 }
+
+/**
+ * free_s - pall
+ * @stack: stack
+ */
+
+void free_s(stack_t *stack)
+{
+	stack_t *aux;
+
+	while (stack != NULL)
+	{
+		aux = stack;
+		stack = stack->next;
+		free(aux);
+	}
+}

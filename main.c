@@ -47,10 +47,12 @@ int read(FILE *fp)
 		if (search(buf, linenum, &stack) == 1)
 		{
 			free(buf);
+			free_s(stack);
 			exit(EXIT_FAILURE);
 		}
 	}
 	free(buf);
+	free_s(stack);
 	return (0);
 }
 
@@ -61,7 +63,6 @@ int read(FILE *fp)
  * @stack: stack
  * Return: int
  */
-
 int search(char *buf, unsigned int linenum, stack_t **stack)
 {
 	char *tok = NULL;
