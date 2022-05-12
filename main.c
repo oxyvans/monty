@@ -71,6 +71,7 @@ int search(char *buf, unsigned int linenum, stack_t **stack)
 	instruction_t form[] = {
 		{"push", _push},
 		{"pall", _pall},
+		{"pint", _pint},
 		{NULL, NULL}
 	};
 
