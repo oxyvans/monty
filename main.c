@@ -100,8 +100,15 @@ int is_number(char *data)
 	int i = 0;
 	int flag = 0;
 
+	if (data[i] == '-')
+	{
+		flag = 0;
+		i++;
+	}
+	
 	while (data[i] != '\0' && flag != 1)
 	{
+
 		if (data[i] >= '0' && data[i] <= '9')
 			flag = 0;
 		else
