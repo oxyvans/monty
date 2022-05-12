@@ -23,4 +23,5 @@ void _pop(stack_t **stack, unsigned int line_number)
 		aux->prev->next = NULL;
 		*stack = aux->prev;
 	}
+	free(aux);
 }
