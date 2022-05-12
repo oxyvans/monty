@@ -61,12 +61,20 @@ void _pall(stack_t **stack, unsigned int line_number)
 
 void free_s(stack_t *stack)
 {
-	stack_t *aux;
+	stack_t *save = stack;
 
+	if (stack == NULL)
+	{
+		return;
+	}
+	while (stack->next != NULL)
+	{
+		stack = stack->next;
+	}
 	while (stack != NULL)
 	{
-		aux = stack;
-		stack = stack->next;
-		free(aux);
+		save = stack;
+		stack = stack->prev;
+		free(save);
 	}
 }
