@@ -16,7 +16,6 @@ void _push(stack_t **stack, unsigned int line_number)
 	if (node == NULL)
 	{
 		fprintf(stderr, "Error: malloc failed\n");
-		free_s(node);
 		exit(EXIT_FAILURE);
 	}
 
@@ -48,7 +47,7 @@ void _pall(stack_t **stack, unsigned int line_number)
 	stack_t *aux = *stack;
 	(void)line_number;
 
-	while(aux)
+	while (aux)
 	{
 		printf("%d\n", aux->n);
 		aux = aux->prev;

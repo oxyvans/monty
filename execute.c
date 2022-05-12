@@ -5,7 +5,7 @@ int value;
 /**
  * exe - exe funcion
  * @tok: line
- * @op_code: funcions
+ * @form: funcions
  * @linenum: line
  * @stack: stack
  * Return: int
@@ -16,7 +16,7 @@ int exe(char *tok, instruction_t *form, unsigned int linenum, stack_t **stack)
 	char *val = NULL;
 	int i = 1;
 
-	while(form[i].opcode != NULL)
+	while (form[i].opcode != NULL)
 	{
 		if (strcmp(form[0].opcode, tok) == 0)
 		{

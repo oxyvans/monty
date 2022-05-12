@@ -26,7 +26,7 @@ int main(int argc, char *argv[])
 
 	read(fp);
 	fclose(fp);
-	return(0);
+	return (0);
 }
 
 /**
@@ -44,7 +44,6 @@ int read(FILE *fp)
 
 	for (linenum = 1; getline(&buf, &size, fp) != -1; ++linenum)
 	{
-		
 		if (search(buf, linenum, &stack) == 1)
 		{
 			free(buf);
@@ -111,7 +110,6 @@ int is_number(char *data)
 		flag = 0;
 		i++;
 	}
-	
 	while (data[i] != '\0' && flag != 1)
 	{
 
