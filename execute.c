@@ -21,7 +21,7 @@ int exe(char *tok, instruction_t *form, unsigned int linenum, stack_t **stack)
 		if (strcmp(form[0].opcode, tok) == 0)
 		{
 			val = strtok(NULL, " \n\t\r");
-			if (val == NULL)
+			if (val == NULL || isdigit(*val) == 0)
 			{
 				fprintf(stderr, "L%d: usage: push integer\n", linenum);
 				exit(EXIT_FAILURE);
