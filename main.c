@@ -79,6 +79,8 @@ int search(char *buf, unsigned int linenum, stack_t **stack)
 		{"div", _div},
 		{"mul", _mul},
 		{"mod", _mod},
+		{"pchar", _pchar},
+		{"pstr", _pstr},
 		{NULL, NULL}
 	};
 
