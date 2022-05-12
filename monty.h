@@ -40,6 +40,7 @@ typedef struct instruction_s
 
 int main(int argc, char *argv[]);
 int read(FILE *fp);
+int is_number(char *data);
 int search(char *buf, unsigned int linenum, stack_t **stack);
 int exe(char *tok, instruction_t *form, unsigned int linenum, stack_t **stack);
 void _push(stack_t **stack, unsigned int line_number);

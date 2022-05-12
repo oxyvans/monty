@@ -88,3 +88,25 @@ int search(char *buf, unsigned int linenum, stack_t **stack)
 	}
 	return (0);
 }
+
+/**
+ *is_number - checks if number
+ *@data: input
+ * Return: 0 if num
+ */
+
+int is_number(char *data)
+{
+	int i = 0;
+	int flag = 0;
+
+	while (data[i] != '\0' && flag != 1)
+	{
+		if (data[i] >= '0' && data[i] <= '9')
+			flag = 0;
+		else
+			flag = 1;
+		i++;
+	}
+	return (flag);
+}
